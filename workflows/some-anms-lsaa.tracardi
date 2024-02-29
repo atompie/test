@@ -3,7 +3,7 @@
   "name": "some anms LSAa & ",
   "production": false,
   "running": false,
-  "timestamp": "2024-02-29T11:26:02",
+  "timestamp": "2024-02-29T12:39:24",
   "deploy_timestamp": null,
   "description": "",
   "tags": [
@@ -21,7 +21,19 @@
     "response": {},
     "file_name": null,
     "flowGraph": {
-      "edges": [],
+      "edges": [
+        {
+          "id": "20ba4dacb53ad016584562056c782ed2",
+          "data": {
+            "name": ""
+          },
+          "type": "",
+          "source": "38f5edfe-f67b-4475-8e48-976a36e44736",
+          "target": "22671c34-2370-4d64-b0be-ac0103c785cf",
+          "sourceHandle": "payload",
+          "targetHandle": "payload"
+        }
+      ],
       "nodes": [
         {
           "id": "38f5edfe-f67b-4475-8e48-976a36e44736",
@@ -241,10 +253,107 @@
             "x": 327.0,
             "y": 63.96665954589844
           }
+        },
+        {
+          "id": "22671c34-2370-4d64-b0be-ac0103c785cf",
+          "data": {
+            "spec": {
+              "id": "cb070b4b479ab46941a176847f876262",
+              "form": null,
+              "init": null,
+              "node": {
+                "on_create": null,
+                "on_remove": null
+              },
+              "skip": false,
+              "author": "Risto Kowaczewski",
+              "inputs": [
+                "payload"
+              ],
+              "manual": "end",
+              "module": "tracardi.process_engine.action.v1.end_action",
+              "license": "MIT + CC",
+              "outputs": [],
+              "version": "0.1",
+              "run_once": {
+                "ttl": 0,
+                "type": "value",
+                "value": "",
+                "enabled": false
+              },
+              "className": "EndAction",
+              "block_flow": false,
+              "microservice": {
+                "plugin": {
+                  "id": "",
+                  "name": "",
+                  "resource": {}
+                },
+                "server": {
+                  "resource": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "credentials": {
+                    "test": {},
+                    "production": {}
+                  }
+                },
+                "service": {
+                  "id": "",
+                  "name": ""
+                }
+              },
+              "on_error_continue": false,
+              "run_in_background": false,
+              "join_input_payload": false,
+              "append_input_payload": false,
+              "on_connection_error_repeat": 1
+            },
+            "debug": false,
+            "start": false,
+            "metadata": {
+              "pro": false,
+              "desc": "Ends workflow.",
+              "icon": "stop",
+              "name": "End",
+              "tags": [],
+              "type": "startNode",
+              "brand": "Tracardi",
+              "group": [
+                "Flow"
+              ],
+              "width": 300,
+              "height": 100,
+              "remote": false,
+              "purpose": [
+                "collection",
+                "segmentation"
+              ],
+              "frontend": false,
+              "keywords": [],
+              "commercial": false,
+              "emits_event": {},
+              "documentation": {
+                "inputs": {
+                  "payload": {
+                    "desc": "This port takes payload object."
+                  }
+                },
+                "outputs": {},
+                "tutorial": null
+              }
+            }
+          },
+          "type": "startNode",
+          "position": {
+            "x": 300.0,
+            "y": 206.96665954589844
+          }
         }
       ]
     },
-    "timestamp": "2024-02-29T10:25:31",
+    "timestamp": "2024-02-29T11:26:02",
     "wf_schema": {
       "uri": "http://www.tracardi.com/2021/WFSchema",
       "version": "0.9.0-rc2",
