@@ -1,0 +1,580 @@
+{
+  "id": "8765b95c-e37e-428a-8164-40782b620be8",
+  "name": "test",
+  "production": false,
+  "running": false,
+  "timestamp": "2024-03-25T09:38:38",
+  "deploy_timestamp": null,
+  "description": "",
+  "tags": [
+    "General"
+  ],
+  "file_name": null,
+  "draft": {
+    "id": "8765b95c-e37e-428a-8164-40782b620be8",
+    "lock": false,
+    "name": "test",
+    "tags": [
+      "General"
+    ],
+    "type": "collection",
+    "response": {},
+    "file_name": null,
+    "flowGraph": {
+      "edges": [
+        {
+          "id": "562c66cfc6bbd13dbe1d0727ff74eaa9",
+          "data": {
+            "name": ""
+          },
+          "type": "",
+          "source": "932bcb1a-7325-46aa-aa12-3d1cb2f95c7d",
+          "target": "e22805b2-bf16-4d64-beab-4d5dad637e1e",
+          "sourceHandle": "payload",
+          "targetHandle": "payload"
+        },
+        {
+          "id": "eb2cfd9cce54617c3499bf5d695b1361",
+          "data": {
+            "name": ""
+          },
+          "type": "",
+          "source": "e22805b2-bf16-4d64-beab-4d5dad637e1e",
+          "target": "b9beacab-188d-4ddc-88a7-b7e0db4cfec8",
+          "sourceHandle": "payload",
+          "targetHandle": "payload"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "932bcb1a-7325-46aa-aa12-3d1cb2f95c7d",
+          "data": {
+            "spec": {
+              "id": "5ada67fa006690e709ac790a1fcd9882",
+              "form": {
+                "title": null,
+                "groups": [
+                  {
+                    "name": null,
+                    "fields": [
+                      {
+                        "id": "event_types",
+                        "name": "Accept only the following event types",
+                        "required": false,
+                        "component": {
+                          "type": "eventTypes",
+                          "props": {
+                            "label": "Event types"
+                          }
+                        },
+                        "validation": null,
+                        "description": "This node will start the workflow only if the defined below event-types are consumed. If left empty the node will trigger regardless of the event-type and all the events will be accepted. To add none-existing event-type, type its name and press ENTER."
+                      },
+                      {
+                        "id": "debug",
+                        "name": "Collect debugging information",
+                        "required": false,
+                        "component": {
+                          "type": "bool",
+                          "props": {
+                            "label": "Collect debugging information"
+                          }
+                        },
+                        "validation": null,
+                        "description": "Set if you want to collect debugging information. Debugging collects a lot of data if you no longer need to test your workflow disable it to save data and compute power."
+                      }
+                    ],
+                    "description": null
+                  },
+                  {
+                    "name": "Debugging configuration",
+                    "fields": [
+                      {
+                        "id": "event_id",
+                        "name": "Event ID",
+                        "required": false,
+                        "component": {
+                          "type": "text",
+                          "props": {
+                            "label": "Event ID"
+                          }
+                        },
+                        "validation": null,
+                        "description": "Define event id. It may match the event that exists in database. If left empty random id will be generated."
+                      },
+                      {
+                        "id": "event_type",
+                        "name": "Event type",
+                        "required": false,
+                        "component": {
+                          "type": "eventType",
+                          "props": {
+                            "label": "Event type",
+                            "onlyValueWithOptions": false
+                          }
+                        },
+                        "validation": null,
+                        "description": "Define event type. It may match the event that exists in database. If left empty then @debug-event-type will be defined."
+                      },
+                      {
+                        "id": "properties",
+                        "name": "Event properties",
+                        "required": false,
+                        "component": {
+                          "type": "json",
+                          "props": {
+                            "label": "Event types"
+                          }
+                        },
+                        "validation": null,
+                        "description": "You can manually specify event properties for debug purpose. Works only for auto-generated events (does not work with the options below)."
+                      },
+                      {
+                        "id": "profile_id",
+                        "name": "Profile ID",
+                        "required": false,
+                        "component": {
+                          "type": "text",
+                          "props": {
+                            "label": "Profile ID"
+                          }
+                        },
+                        "validation": null,
+                        "description": "Define profile id. It may match the event that exists in database. If left empty random id will be generated."
+                      },
+                      {
+                        "id": "session_id",
+                        "name": "Session ID",
+                        "required": false,
+                        "component": {
+                          "type": "text",
+                          "props": {
+                            "label": "Session ID"
+                          }
+                        },
+                        "validation": null,
+                        "description": "Define session id. It may match the event that exists in database. If left empty random id will be generated."
+                      }
+                    ],
+                    "description": "In debug mode the following event will be injected into workflow."
+                  }
+                ],
+                "submit": null,
+                "default": {}
+              },
+              "init": {
+                "debug": false,
+                "event_id": null,
+                "event_type": {
+                  "id": "",
+                  "name": ""
+                },
+                "profile_id": null,
+                "properties": "{}",
+                "session_id": null,
+                "event_types": []
+              },
+              "node": {
+                "on_create": null,
+                "on_remove": null
+              },
+              "skip": false,
+              "author": "Risto Kowaczewski",
+              "inputs": [],
+              "manual": "start_action",
+              "module": "tracardi.process_engine.action.v1.flow.start.start_action",
+              "license": "MIT + CC",
+              "outputs": [
+                "payload"
+              ],
+              "version": "0.8.0",
+              "run_once": {
+                "ttl": 0,
+                "type": "value",
+                "value": "",
+                "enabled": false
+              },
+              "className": "StartAction",
+              "block_flow": false,
+              "microservice": {
+                "plugin": {
+                  "id": "",
+                  "name": "",
+                  "resource": {}
+                },
+                "server": {
+                  "resource": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "credentials": {
+                    "test": {},
+                    "production": {}
+                  }
+                },
+                "service": {
+                  "id": "",
+                  "name": ""
+                }
+              },
+              "on_error_continue": false,
+              "run_in_background": false,
+              "join_input_payload": false,
+              "append_input_payload": false,
+              "on_connection_error_repeat": 1
+            },
+            "debug": false,
+            "start": true,
+            "metadata": {
+              "pro": false,
+              "desc": "Starts workflow and returns event data on payload port.",
+              "icon": "event",
+              "name": "Start",
+              "tags": [],
+              "type": "startNode",
+              "brand": "Tracardi",
+              "group": [
+                "Flow"
+              ],
+              "width": 200,
+              "height": 200,
+              "remote": false,
+              "purpose": [
+                "collection"
+              ],
+              "frontend": false,
+              "keywords": [
+                "start node"
+              ],
+              "commercial": false,
+              "emits_event": {},
+              "documentation": {
+                "inputs": {},
+                "outputs": {
+                  "payload": {
+                    "desc": "This port returns empty payload object."
+                  }
+                },
+                "tutorial": null
+              }
+            }
+          },
+          "type": "startNode",
+          "position": {
+            "x": 175.0,
+            "y": 126.96665954589844
+          }
+        },
+        {
+          "id": "b9beacab-188d-4ddc-88a7-b7e0db4cfec8",
+          "data": {
+            "spec": {
+              "id": "1f0526ad9caccfac975475f3e3e88196",
+              "form": {
+                "title": null,
+                "groups": [
+                  {
+                    "name": "S3 Upload Configuration",
+                    "fields": [
+                      {
+                        "id": "aws_access_key_id",
+                        "name": "AWS Access Key ID",
+                        "required": false,
+                        "component": {
+                          "type": "password",
+                          "props": {
+                            "label": "AWS Access Key ID"
+                          }
+                        },
+                        "validation": null,
+                        "description": "AWS Access Key ID"
+                      },
+                      {
+                        "id": "aws_secret_access_key",
+                        "name": "AWS Secret Access Key",
+                        "required": false,
+                        "component": {
+                          "type": "password",
+                          "props": {
+                            "label": "AWS Secret Access Key"
+                          }
+                        },
+                        "validation": null,
+                        "description": "AWS Secret Access Key"
+                      },
+                      {
+                        "id": "s3_bucket",
+                        "name": "S3 Bucket",
+                        "required": false,
+                        "component": {
+                          "type": "text",
+                          "props": {
+                            "label": "S3 Bucket"
+                          }
+                        },
+                        "validation": null,
+                        "description": "S3 Bucket to upload JSON data"
+                      }
+                    ],
+                    "description": "Configure AWS credentials and S3 details"
+                  }
+                ],
+                "submit": null,
+                "default": {}
+              },
+              "init": {
+                "s3_bucket": "tracardi-test",
+                "aws_access_key_id": "AKIA5BPQFLU2QZCVVMNI",
+                "aws_secret_access_key": "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"
+              },
+              "node": {
+                "on_create": null,
+                "on_remove": null
+              },
+              "skip": false,
+              "author": "Eqwile",
+              "inputs": [
+                "payload"
+              ],
+              "manual": null,
+              "module": "tracardi.process_engine.action.v1.connectors.aws.s3.upload_segments.plugin",
+              "license": "MIT",
+              "outputs": [
+                "UploadSuccess",
+                "UploadError"
+              ],
+              "version": "0.8.2",
+              "run_once": {
+                "ttl": 0,
+                "type": "value",
+                "value": "",
+                "enabled": false
+              },
+              "className": "S3SegmentsUploaderPlugin",
+              "block_flow": false,
+              "microservice": {
+                "plugin": {
+                  "id": "",
+                  "name": "",
+                  "resource": {}
+                },
+                "server": {
+                  "resource": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "credentials": {
+                    "test": {},
+                    "production": {}
+                  }
+                },
+                "service": {
+                  "id": "",
+                  "name": ""
+                }
+              },
+              "on_error_continue": false,
+              "run_in_background": false,
+              "join_input_payload": false,
+              "append_input_payload": false,
+              "on_connection_error_repeat": 1
+            },
+            "debug": false,
+            "start": false,
+            "metadata": {
+              "pro": false,
+              "desc": "Uploads user profile segments to S3 as JSON.",
+              "icon": "aws",
+              "name": "S3 Segments Uploader Plugin",
+              "tags": [],
+              "type": "flowNode",
+              "brand": "Tracardi",
+              "group": [
+                "AWS"
+              ],
+              "width": 300,
+              "height": 100,
+              "remote": false,
+              "purpose": [
+                "collection",
+                "segmentation"
+              ],
+              "frontend": false,
+              "keywords": [],
+              "commercial": false,
+              "emits_event": {},
+              "documentation": null
+            }
+          },
+          "type": "flowNode",
+          "position": {
+            "x": 89.0,
+            "y": 368.9666595458984
+          }
+        },
+        {
+          "id": "e22805b2-bf16-4d64-beab-4d5dad637e1e",
+          "data": {
+            "spec": {
+              "id": "a0a0e33339a4d21bfbb8982e94c23279",
+              "form": {
+                "title": null,
+                "groups": [
+                  {
+                    "name": "Create payload object",
+                    "fields": [
+                      {
+                        "id": "value",
+                        "name": "Object to inject",
+                        "required": false,
+                        "component": {
+                          "type": "json",
+                          "props": {
+                            "label": "object",
+                            "autocomplete": true
+                          }
+                        },
+                        "validation": null,
+                        "description": "Provide object as JSON to be injected into payload and returned on output port."
+                      },
+                      {
+                        "id": "default",
+                        "name": "Missing values equal null",
+                        "required": false,
+                        "component": {
+                          "type": "bool",
+                          "props": {
+                            "label": "Make missing values equal to null"
+                          }
+                        },
+                        "validation": null,
+                        "description": "Values that are missing will become null"
+                      }
+                    ],
+                    "description": null
+                  }
+                ],
+                "submit": null,
+                "default": {}
+              },
+              "init": {
+                "value": "{\n    \"segments\": [\"test1\", \"test2\"],\n    \"traits\": {\n        \"smi_uid\": \"xxx\"\n    }\n}",
+                "default": true
+              },
+              "node": {
+                "on_create": null,
+                "on_remove": null
+              },
+              "skip": false,
+              "author": "Risto Kowaczewski",
+              "inputs": [
+                "payload"
+              ],
+              "manual": "reshape_payload_action",
+              "module": "tracardi.process_engine.action.v1.traits.reshape_payload_action",
+              "license": "MIT + CC",
+              "outputs": [
+                "payload",
+                "error"
+              ],
+              "version": "0.8.0",
+              "run_once": {
+                "ttl": 0,
+                "type": "value",
+                "value": "",
+                "enabled": false
+              },
+              "className": "ReshapePayloadAction",
+              "block_flow": false,
+              "microservice": {
+                "plugin": {
+                  "id": "",
+                  "name": "",
+                  "resource": {}
+                },
+                "server": {
+                  "resource": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "credentials": {
+                    "test": {},
+                    "production": {}
+                  }
+                },
+                "service": {
+                  "id": "",
+                  "name": ""
+                }
+              },
+              "on_error_continue": false,
+              "run_in_background": false,
+              "join_input_payload": false,
+              "append_input_payload": false,
+              "on_connection_error_repeat": 1
+            },
+            "debug": false,
+            "start": false,
+            "metadata": {
+              "pro": false,
+              "desc": "Creates new payload from provided data. Configuration defines where the data should be copied.",
+              "icon": "json",
+              "name": "Inject payload",
+              "tags": [
+                "reshape",
+                "create",
+                "payload",
+                "data",
+                "make"
+              ],
+              "type": "flowNode",
+              "brand": "Tracardi",
+              "group": [
+                "Input/Output"
+              ],
+              "width": 300,
+              "height": 100,
+              "remote": false,
+              "purpose": [
+                "collection",
+                "segmentation"
+              ],
+              "frontend": false,
+              "keywords": [],
+              "commercial": false,
+              "emits_event": {},
+              "documentation": {
+                "inputs": {
+                  "payload": {
+                    "desc": "This port takes any JSON-like object."
+                  }
+                },
+                "outputs": {
+                  "payload": {
+                    "desc": "This port returns new payload,formed from given payload according to configuration."
+                  }
+                },
+                "tutorial": null
+              }
+            }
+          },
+          "type": "flowNode",
+          "position": {
+            "x": 141.0,
+            "y": 240.96665954589844
+          }
+        }
+      ]
+    },
+    "timestamp": "2024-03-25T09:12:48",
+    "wf_schema": {
+      "uri": "http://www.tracardi.com/2021/WFSchema",
+      "version": "0.9.0-rc4",
+      "server_version": "0.9.0-rc4"
+    },
+    "description": "",
+    "deploy_timestamp": null
+  },
+  "lock": false,
+  "type": "collection"
+}
