@@ -3,7 +3,7 @@
   "name": "test",
   "production": false,
   "running": false,
-  "timestamp": "2024-03-25T19:16:26",
+  "timestamp": "2024-03-25T19:18:03",
   "deploy_timestamp": null,
   "description": "",
   "tags": [
@@ -21,7 +21,30 @@
     "response": {},
     "file_name": null,
     "flowGraph": {
-      "edges": [],
+      "edges": [
+        {
+          "id": "81cd0bcfd9fa6a5ce56995f9c7f8b249",
+          "data": {
+            "name": ""
+          },
+          "type": "",
+          "source": "38f5edfe-f67b-4475-8e48-976a36e44736",
+          "target": "f9b0aa66-f7a8-4969-97bc-f52b0a095971",
+          "sourceHandle": "payload",
+          "targetHandle": "payload"
+        },
+        {
+          "id": "4439cc3a77fbc5b0fd2f1edf9cc06357",
+          "data": {
+            "name": ""
+          },
+          "type": "",
+          "source": "38f5edfe-f67b-4475-8e48-976a36e44736",
+          "target": "45c2bb3d-de4f-442e-878d-0416476451ee",
+          "sourceHandle": "payload",
+          "targetHandle": "payload"
+        }
+      ],
       "nodes": [
         {
           "id": "38f5edfe-f67b-4475-8e48-976a36e44736",
@@ -238,8 +261,8 @@
           },
           "type": "startNode",
           "position": {
-            "x": 327.0,
-            "y": 63.96665954589844
+            "x": 306.0,
+            "y": 64.96665954589844
           }
         },
         {
@@ -370,8 +393,8 @@
           },
           "type": "flowNode",
           "position": {
-            "x": 245.0,
-            "y": 182.1666717529297
+            "x": 327.0,
+            "y": 251.1666717529297
           }
         },
         {
@@ -518,8 +541,8 @@
           },
           "type": "flowNode",
           "position": {
-            "x": 140.0,
-            "y": 72.16667175292969
+            "x": 123.0,
+            "y": 76.16667175292969
           }
         },
         {
@@ -640,8 +663,8 @@
           },
           "type": "flowNode",
           "position": {
-            "x": 21.0,
-            "y": 192.1666717529297
+            "x": 32.0,
+            "y": 232.1666717529297
           }
         }
       ]
