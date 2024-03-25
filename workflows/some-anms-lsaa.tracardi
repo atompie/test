@@ -1,9 +1,9 @@
 {
-  "id": "267bf899-d1aa-4d8c-a902-b0a18e092286",
-  "name": "some anms LSAa & ",
+  "id": "8765b95c-e37e-428a-8164-40782b620be8",
+  "name": "test",
   "production": false,
   "running": false,
-  "timestamp": "2024-02-29T12:39:24",
+  "timestamp": "2024-03-25T19:16:26",
   "deploy_timestamp": null,
   "description": "",
   "tags": [
@@ -11,7 +11,7 @@
   ],
   "file_name": null,
   "draft": {
-    "id": "267bf899-d1aa-4d8c-a902-b0a18e092286",
+    "id": "8765b95c-e37e-428a-8164-40782b620be8",
     "lock": false,
     "name": "some anms LSAa & ",
     "tags": [
@@ -21,19 +21,7 @@
     "response": {},
     "file_name": null,
     "flowGraph": {
-      "edges": [
-        {
-          "id": "20ba4dacb53ad016584562056c782ed2",
-          "data": {
-            "name": ""
-          },
-          "type": "",
-          "source": "38f5edfe-f67b-4475-8e48-976a36e44736",
-          "target": "22671c34-2370-4d64-b0be-ac0103c785cf",
-          "sourceHandle": "payload",
-          "targetHandle": "payload"
-        }
-      ],
+      "edges": [],
       "nodes": [
         {
           "id": "38f5edfe-f67b-4475-8e48-976a36e44736",
@@ -255,12 +243,39 @@
           }
         },
         {
-          "id": "22671c34-2370-4d64-b0be-ac0103c785cf",
+          "id": "f9b0aa66-f7a8-4969-97bc-f52b0a095971",
           "data": {
             "spec": {
-              "id": "cb070b4b479ab46941a176847f876262",
-              "form": null,
-              "init": null,
+              "id": "01e502a4ba981b5b1d454b478a3c49a9",
+              "form": {
+                "title": null,
+                "groups": [
+                  {
+                    "name": "Calculations",
+                    "fields": [
+                      {
+                        "id": "calc_dsl",
+                        "name": "Calculation equations",
+                        "required": false,
+                        "component": {
+                          "type": "textarea",
+                          "props": {
+                            "label": "Calculations"
+                          }
+                        },
+                        "validation": null,
+                        "description": "One calculation per line. Example: profile@aux.counters.my_count = profile@aaux.visits + 1"
+                      }
+                    ],
+                    "description": "Calculations are made in a simple domain specific language. See documentation for details."
+                  }
+                ],
+                "submit": null,
+                "default": {}
+              },
+              "init": {
+                "calc_dsl": ""
+              },
               "node": {
                 "on_create": null,
                 "on_remove": null
@@ -270,18 +285,20 @@
               "inputs": [
                 "payload"
               ],
-              "manual": "end",
-              "module": "tracardi.process_engine.action.v1.end_action",
+              "manual": "calculator_action",
+              "module": "tracardi.process_engine.action.v1.calculator_action",
               "license": "MIT + CC",
-              "outputs": [],
-              "version": "0.1",
+              "outputs": [
+                "payload"
+              ],
+              "version": "0.8.2",
               "run_once": {
                 "ttl": 0,
                 "type": "value",
                 "value": "",
                 "enabled": false
               },
-              "className": "EndAction",
+              "className": "CalculatorAction",
               "block_flow": false,
               "microservice": {
                 "plugin": {
@@ -314,14 +331,164 @@
             "start": false,
             "metadata": {
               "pro": false,
-              "desc": "Ends workflow.",
-              "icon": "stop",
-              "name": "End",
+              "desc": "Calculates new values. Adds, subtracts, divides, and multiplies values.",
+              "icon": "calculator",
+              "name": "Calculator",
               "tags": [],
-              "type": "startNode",
+              "type": "flowNode",
               "brand": "Tracardi",
               "group": [
-                "Flow"
+                "Data processing"
+              ],
+              "width": 300,
+              "height": 100,
+              "remote": false,
+              "purpose": [
+                "collection",
+                "segmentation"
+              ],
+              "frontend": false,
+              "keywords": [
+                "math"
+              ],
+              "commercial": false,
+              "emits_event": {},
+              "documentation": {
+                "inputs": {
+                  "payload": {
+                    "desc": "This port takes payload object."
+                  }
+                },
+                "outputs": {
+                  "payload": {
+                    "desc": "Returns result of calculations."
+                  }
+                },
+                "tutorial": null
+              }
+            }
+          },
+          "type": "flowNode",
+          "position": {
+            "x": 245.0,
+            "y": 182.1666717529297
+          }
+        },
+        {
+          "id": "945f476b-7016-4e1e-972d-a61cf6a88e89",
+          "data": {
+            "spec": {
+              "id": "0ed7d3077c83e45913e042729811355b",
+              "form": {
+                "title": null,
+                "groups": [
+                  {
+                    "name": "Copy data",
+                    "fields": [
+                      {
+                        "id": "traits",
+                        "name": "Define the copy/set actions",
+                        "required": false,
+                        "component": {
+                          "type": "copyTraitsInput",
+                          "props": {
+                            "actions": {
+                              "set": "Set to"
+                            },
+                            "defaultAction": "set",
+                            "defaultSource": "event@properties",
+                            "defaultTarget": "profile@traits"
+                          }
+                        },
+                        "validation": null,
+                        "description": "Provide source and target data along with action you would like to perform."
+                      }
+                    ],
+                    "description": null
+                  }
+                ],
+                "submit": null,
+                "default": {}
+              },
+              "init": {
+                "traits": {
+                  "set": {}
+                }
+              },
+              "node": {
+                "on_create": null,
+                "on_remove": null
+              },
+              "skip": false,
+              "author": "Risto Kowaczewski",
+              "inputs": [
+                "payload"
+              ],
+              "manual": "copy_data",
+              "module": "tracardi.process_engine.action.v1.traits.copy_trait_action",
+              "license": "MIT + CC",
+              "outputs": [
+                "payload",
+                "error"
+              ],
+              "version": "0.8.2",
+              "run_once": {
+                "ttl": 0,
+                "type": "value",
+                "value": "",
+                "enabled": false
+              },
+              "className": "CopyTraitAction",
+              "block_flow": false,
+              "microservice": {
+                "plugin": {
+                  "id": "",
+                  "name": "",
+                  "resource": {}
+                },
+                "server": {
+                  "resource": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "credentials": {
+                    "test": {},
+                    "production": {}
+                  }
+                },
+                "service": {
+                  "id": "",
+                  "name": ""
+                }
+              },
+              "on_error_continue": false,
+              "run_in_background": false,
+              "join_input_payload": false,
+              "append_input_payload": false,
+              "on_connection_error_repeat": 1
+            },
+            "debug": false,
+            "start": false,
+            "metadata": {
+              "pro": false,
+              "desc": "Copy event property to profile trait. This plugin copies event properties to defined destination.",
+              "icon": "copy",
+              "name": "Copy data",
+              "tags": [
+                "profile",
+                "event",
+                "traits",
+                "memory",
+                "reference",
+                "data",
+                "read",
+                "copy",
+                "properties"
+              ],
+              "type": "flowNode",
+              "brand": "Tracardi",
+              "group": [
+                "Data processing"
               ],
               "width": 300,
               "height": 100,
@@ -337,27 +504,153 @@
               "documentation": {
                 "inputs": {
                   "payload": {
-                    "desc": "This port takes payload object."
+                    "desc": "This port takes any JSON-like object."
                   }
                 },
-                "outputs": {},
+                "outputs": {
+                  "payload": {
+                    "desc": "This port returns given payload modified according to configuration."
+                  }
+                },
                 "tutorial": null
               }
             }
           },
-          "type": "startNode",
+          "type": "flowNode",
           "position": {
-            "x": 300.0,
-            "y": 206.96665954589844
+            "x": 140.0,
+            "y": 72.16667175292969
+          }
+        },
+        {
+          "id": "45c2bb3d-de4f-442e-878d-0416476451ee",
+          "data": {
+            "spec": {
+              "id": "5ea4ba23181b36febce3428924b56f6b",
+              "form": null,
+              "init": {
+                "append": {
+                  "target1": "source1",
+                  "target2": "source2"
+                },
+                "remove": {
+                  "target": [
+                    "item1",
+                    "item2"
+                  ]
+                }
+              },
+              "node": {
+                "on_create": null,
+                "on_remove": null
+              },
+              "skip": false,
+              "author": "Risto Kowaczewski",
+              "inputs": [
+                "payload"
+              ],
+              "manual": "append_remove_trait_action",
+              "module": "tracardi.process_engine.action.v1.traits.append_trait_action",
+              "license": "MIT + CC",
+              "outputs": [
+                "payload",
+                "error"
+              ],
+              "version": "0.1",
+              "run_once": {
+                "ttl": 0,
+                "type": "value",
+                "value": "",
+                "enabled": false
+              },
+              "className": "AppendTraitAction",
+              "block_flow": false,
+              "microservice": {
+                "plugin": {
+                  "id": "",
+                  "name": "",
+                  "resource": {}
+                },
+                "server": {
+                  "resource": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "credentials": {
+                    "test": {},
+                    "production": {}
+                  }
+                },
+                "service": {
+                  "id": "",
+                  "name": ""
+                }
+              },
+              "on_error_continue": false,
+              "run_in_background": false,
+              "join_input_payload": false,
+              "append_input_payload": false,
+              "on_connection_error_repeat": 1
+            },
+            "debug": false,
+            "start": false,
+            "metadata": {
+              "pro": false,
+              "desc": "Appends/Removes trait to/from given destination",
+              "icon": "append",
+              "name": "Append/Remove data",
+              "tags": [
+                "traits",
+                "profile",
+                "reference",
+                "data"
+              ],
+              "type": "flowNode",
+              "brand": "Tracardi",
+              "group": [
+                "Data processing"
+              ],
+              "width": 300,
+              "height": 100,
+              "remote": false,
+              "purpose": [
+                "collection"
+              ],
+              "frontend": false,
+              "keywords": [],
+              "commercial": false,
+              "emits_event": {},
+              "documentation": {
+                "inputs": {
+                  "payload": {
+                    "desc": "This port takes any JSON-like object."
+                  }
+                },
+                "outputs": {
+                  "error": {
+                    "desc": "This port returns error if appending was not successful."
+                  },
+                  "payload": {
+                    "desc": "This port returns given payload with traits appended or removed according to configuration."
+                  }
+                },
+                "tutorial": null
+              }
+            }
+          },
+          "type": "flowNode",
+          "position": {
+            "x": 21.0,
+            "y": 192.1666717529297
           }
         }
       ]
     },
-    "timestamp": "2024-02-29T11:26:02",
+    "timestamp": "2024-02-29T10:25:31",
     "wf_schema": {
       "uri": "http://www.tracardi.com/2021/WFSchema",
       "version": "0.9.0-rc2",
-      "server_version": "0.9.0-rc2"
+      "server_version": "0.9.0-rc4"
     },
     "description": "",
     "deploy_timestamp": null
